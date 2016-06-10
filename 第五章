@@ -1,0 +1,19 @@
+核心类
+1、“==”与equals()方法的区别：“==”比较两个对象的引用地址，equals()调用则比较两个对象内容
+2、String的Valueof()方法：将基本类型、char数组或者Object的实例转换成字符串表示形式。
+3、String对象是不可变的，并不适合给他们添加和插入字符，因为对String的字符串操作总是会创建新的String对象。对于添加或插入，最好使用java.lang
+.StringBuffer或java.lang.StringBuilder类。一旦完成对字符串的操作，则可把StringBuffer和StringBuiler对象转换为String对象。
+4、基本数据类型封装：
+  （1）java.lang.Integer：包含byteValue、doubleValue、floatValue等方法将int封装的值转化为相应的类型，还包含parseInt(将String解析为Int)、
+  toString(将int转换成String)
+  （2）java.lang.Boolean：对boolean进封装，包含booleanValue（将Boolean对象转换为boolean）、valueof(String string)（将String解析为Boolean对象
+  ）、toString（boolean boolean）（返回boolean的字符串表示）
+  （3）java.lang.Character：charValue（将Character对象转换为char）、isDigit（char c）(判断参数是不是数字)、toLowerCase、toUpperCse
+5、for增强：for(componmenType variable:arrayName)
+6、java.lang.Class：每当JVM创建对象时，class类也创建了一个java.lang.Class对象，用它来描述对象的类型。同一类的所有实例共用同一个class对象。
+通过调用对象的getclass方法可以获得class对象，这个方法继承自java.lang.Object。
+7、java.lang.Class：forName（）+newInstance（）方法可以创建class对象
+8、可变参数：
+  public void test(String... args)
+  public void test1(String[] args)
+  备注：test允许不传递参数或传递任意数量的String参数，而test1则传递String数组或者null
