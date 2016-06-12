@@ -5,4 +5,36 @@
 Comparator，它来定义两个对象怎样进行比较。要使两个对象可以在两个方面进行比较时，就需要两个比较器。
 
 泛型
-1、
+1、泛型类型可以接受参数，这也正是泛型类型经常被称为参数化类型的原因。泛型将引用类型放到尖括号里传递给泛型类型。
+2、在泛型中使用？通配符、界通配符（上界extends、下界super）
+3、泛型point类
+**********************************************
+  public class Point<T>{
+    T x;
+    T y;
+    public Point(T x,T y){
+      this.x=x;
+      this.y=y;
+    }
+    public T getX(){
+      return x;
+    }
+    public T getY(){
+      return y;
+    }
+    public void setX(T x){
+      this.x=x;
+    }
+    public void setY(T y){
+      this.y=y;
+    }
+  }
+  
+  泛型使用：
+  Point<Integer> point1=new Point<>(4,2);
+  point1.setX(7);
+  Point<Double> point2=new Point<>(1.3,2.6);
+  point2.setX(109.91);
+4、泛型的优点
+  （1）在编译时增加了对集合类型的类型检查，这样集合可以保存的对象类型就限制为传递给它的类型。
+  （2）泛型使得在检索集合的元素时不用进行类型转换。
