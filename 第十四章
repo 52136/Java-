@@ -1,0 +1,41 @@
+嵌套类和内部类
+1、嵌套类是一个生命在另一个类或者接口内部的类，有两种类型：静态内部类和非静态嵌套类，非静态嵌套类也称为内部类。
+2、内部类：成员内部类、局部内部类、匿名内部类
+3、内部类和静态嵌套类的区别：
+  （1）静态嵌套类可以有静态成员，内部类不可以。
+  （2）就像实例方法一样，内部类可以访问外层类的静态和非静态成员，包括它的private成员。静态嵌套类只能访问外层类的静态成员。
+  （3）无需先创建外层类的实例就可以创建静态嵌套类的实例。相反，在实例化内部类之前，必须先创建包住内部类的外层类的实例。
+内部类的优点：
+  （1）内部类可以使用外层类的所有成员（包括private）
+  （2）内部类可以帮助你完成隐藏类的实现
+  （3）内部类提供了一种在Swing和其他基于事件的应用程序中编写监听器的快捷方法。
+4、静态嵌套类：
+  （1）不用创建外部类的实例就可以创建静态嵌套类。
+  （2）用该格式来引出嵌套类：OuterClassName.InnerClassName
+  （3）在静态嵌套类内部可以访问外层类的静态成员。
+5、成员内部类：只有在引用它的外层类实例时，才可以创建成员内部类的实例。
+  Printer printer=new PrinterImpl（）;
+  printer.print("hiding implementation");
+  PrinterImpl impl=(PrinterImpl)printer;
+  
+  printer hiddenPrinter=(new SecretPrinterImpl()).getPrinter();
+  hiddenPrinter.print("hiding implementation");
+  
+  备注：给Printer赋一个PrinterImpl的实例，可以将Printer向下转换回PrinterImpl。在第二个实例中，通过给SecretPrinterImpl调用getPrinter方法给
+  printer赋一个Inner的实例。然而无法将hiddenPrinter向下转换回SecretPrinterImpl.Inner，因为Inner是private，因为是不可见的。
+6、局部内部类：在任意代码块中声明，它的作用域是在这个块内。
+    public Logger getLogger(){
+      class LoggerImpl implements Logger{
+        public void log(String message){
+          System.out.println(message);
+        }
+      }
+    }
+7、匿名内部类：没有名称，主要用于编写接口实现。
+    Printable print=new Printable(){
+      public void print(String message){
+        System.out.println(message);
+      }
+    };
+8、对内部类对象而言，他们又对外层类对象的自动引用。这个引用在静态嵌套类的实例中不存在，因为静态嵌套类不能访问其外层类的实例成员。
+9、使用嵌套类的优势：完全隐藏一个类的实现，快捷地编写其实例只存在与特定上下文中的类。
